@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Диас Валеев](https://up.htmlacademy.ru/javascript/32/user/18719).
-* Наставник: `Неизвестно`.
+* Наставник: [Кексобот](https://htmlacademy.ru/intensive/javascript).
 
 ---
 

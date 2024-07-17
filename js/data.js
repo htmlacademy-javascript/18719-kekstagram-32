@@ -1,4 +1,4 @@
-import {getRandomInteger, getRandomArrayElement, generateRandomId} from './util.js';
+import {getRandomInteger, getRandomArrayElement, createIdGenerator} from './util.js';
 
 
 const PHOTO_COUNT = 25;
@@ -37,6 +37,8 @@ const NAMES = [
   'Мия', 'Мэйко', 'Натсуми', 'Нэтсу', 'Рей', 'Рин',
   'Сакура', 'Сумико',
 ];
+
+const generateRandomId = createIdGenerator();
 
 const createMessage = () => Array.from(
   {length: getRandomInteger(MESSAGE_MIN_COUNT, MESSAGE_MAX_COUNT)},

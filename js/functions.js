@@ -23,15 +23,17 @@ const getPositiveNumber = (string) => {
   return positiveNumber ? Number(positiveNumber) : NaN;
 };
 
+const convertToMinutes = (time) => {
+  const MINUTES_IN_HOUR = 60;
+  const myTimeArr = time.split(':');
+  return Number(myTimeArr[0]) * MINUTES_IN_HOUR + Number(myTimeArr[1]);
+};
+
 // Функция для проверки выходит ли встреча за рамки рабочего дня
 const isTimeInWorkday = (startDay, endDay, meetingStart, duration) => {
-  const myStartDayArr = startDay.split(':');
-  const myEndDayArr = endDay.split(':');
-  const myMeetingStartArr = meetingStart.split(':');
-
-  const myStartDayMinutes = Number(myStartDayArr[0]) * 60 + Number(myStartDayArr[1]);
-  const myEndDayMinutes = Number(myEndDayArr[0]) * 60 + Number(myEndDayArr[1]);
-  const myMeetingStartMinutes = Number(myMeetingStartArr[0]) * 60 + Number(myMeetingStartArr[1]);
+  const myStartDayMinutes = convertToMinutes(startDay);
+  const myEndDayMinutes = convertToMinutes(endDay);
+  const myMeetingStartMinutes = convertToMinutes(meetingStart);
 
   const option1 = myStartDayMinutes <= myMeetingStartMinutes;
   const option2 = myMeetingStartMinutes < myEndDayMinutes;

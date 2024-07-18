@@ -1,5 +1,5 @@
-import './util.js';
-import {getPhotos} from './data.js';
+import { getPhotos } from './data.js';
+import { generateThumbnail } from './thumbnail.js';
 
 
-getPhotos();
+generateThumbnail(getPhotos());

@@ -1,5 +1,2 @@
 import './util.js';
-import {getPhotos} from './data.js';
-
-
-getPhotos();
+import './miniatures.js';

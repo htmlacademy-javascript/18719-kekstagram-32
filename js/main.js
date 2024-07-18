@@ -1,2 +1,5 @@
-import './util.js';
-import './miniatures.js';
+import { getPhotos } from './data.js';
+import { generateThumbnail } from './thumbnail.js';
+
+
+generateThumbnail(getPhotos());

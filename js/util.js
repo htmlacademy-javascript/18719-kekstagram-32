@@ -1,28 +1,20 @@
-const getRandomInteger = (a, b) => {
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-  const result = Math.random() * (upper - lower + 1) + lower;
+const ALERT_SHOW_TIME = 5000;
 
-  return Math.floor(result);
-};
-
-const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
-
-const createIdGenerator = () => {
-  let numberId = 0;
-
-  return () => {
-    numberId += 1;
-    return numberId;
-  };
-};
+const dataErrorTemplate = document.querySelector('#data-error').content.querySelector('.data-error');
 
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
+const showAlert = () => {
+  const dataErrorElement = dataErrorTemplate.cloneNode(true);
+  document.body.append(dataErrorElement);
+
+  setTimeout(() => {
+    dataErrorElement.remove();
+  }, ALERT_SHOW_TIME);
+};
+
 
 export {
-  getRandomInteger,
-  getRandomArrayElement,
-  createIdGenerator,
-  isEscapeKey
+  isEscapeKey,
+  showAlert
 };

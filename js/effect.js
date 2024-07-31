@@ -1,4 +1,4 @@
-const effect = {
+const Effect = {
   DEFAULT: 'none',
   CHROME: 'chrome',
   SEPIA: 'sepia',
@@ -8,55 +8,55 @@ const effect = {
 };
 
 const effectToFilter = {
-  [effect.CHROME]: {
+  [Effect.CHROME]: {
     style: 'grayscale',
     unit: '',
   },
-  [effect.SEPIA]: {
+  [Effect.SEPIA]: {
     style: 'sepia',
     unit: '',
   },
-  [effect.MARVIN]: {
+  [Effect.MARVIN]: {
     style: 'invert',
     unit: '%',
   },
-  [effect.PHOBOS]: {
+  [Effect.PHOBOS]: {
     style: 'blur',
     unit: 'px',
   },
-  [effect.HEAT]: {
+  [Effect.HEAT]: {
     style: 'brightness',
     unit: '',
   },
 };
 
 const effectToSliderOptions = {
-  [effect.DEFAULT]: {
+  [Effect.DEFAULT]: {
     min: 0,
     max: 100,
     step: 1,
   },
-  [effect.CHROME]: {
+  [Effect.CHROME]: {
     min: 0,
     max: 1,
     step: 0.1,
   },
-  [effect.SEPIA]: {
+  [Effect.SEPIA]: {
     min: 0,
     max: 1,
     step: 0.1,
   },
-  [effect.MARVIN]: {
+  [Effect.MARVIN]: {
     min: 0,
     max: 100,
     step: 1,
   },
-  [effect.PHOBOS]: {
+  [Effect.PHOBOS]: {
     min: 0,
     max: 3,
     step: 0.1,
   },
-  [effect.HEAT]: {
+  [Effect.HEAT]: {
     min: 1,
     max: 3,
     step: 0.1,
@@ -70,9 +70,9 @@ const sliderElement = modalElement.querySelector('.effect-level__slider');
 const sliderContainerElement = modalElement.querySelector('.img-upload__effect-level');
 const effectLevelElement = modalElement.querySelector('.effect-level__value');
 
-let chosenEffect = effect.DEFAULT;
+let chosenEffect = Effect.DEFAULT;
 
-const isDefault = () => chosenEffect === effect.DEFAULT;
+const isDefault = () => chosenEffect === Effect.DEFAULT;
 
 const setImageStyle = () => {
   if (isDefault()) {
@@ -133,7 +133,7 @@ const setEffect = (myEffect) => {
   setImageStyle();
 };
 
-const reset = () => setEffect(effect.DEFAULT);
+const reset = () => setEffect(Effect.DEFAULT);
 
 const onEffectsChange = (evt) => setEffect(evt.target.value);
 

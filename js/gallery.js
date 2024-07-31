@@ -4,20 +4,25 @@ import { showBigPhoto } from './big-photo.js';
 
 const container = document.querySelector('.pictures');
 
-const renderGallery = (array) => {
-  container.addEventListener('click', (evt) => {
-    const thumbnail = evt.target.closest('[data-thumbnail-id]');
-    if (!thumbnail) {
-      return;
-    }
+let photos = [];
 
-    evt.preventDefault();
+const onContainerClick = (evt) => {
+  const thumbnail = evt.target.closest('[data-thumbnail-id]');
+  if (!thumbnail) {
+    return;
+  }
 
-    const photo = array.find((element) => element.id === Number(thumbnail.dataset.thumbnailId));
-    showBigPhoto(photo);
-  });
+  evt.preventDefault();
 
-  renderThumbnails(array, container);
+  const photo = photos.find((element) => element.id === Number(thumbnail.dataset.thumbnailId));
+  showBigPhoto(photo);
+};
+
+const renderGallery = (currentPhotos) => {
+  photos = currentPhotos;
+  renderThumbnails(photos, container);
+
+  container.addEventListener('click', onContainerClick);
 };
 
 

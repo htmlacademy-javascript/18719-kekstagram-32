@@ -21,6 +21,7 @@ const renderThumbnails = (array, container) => {
     fragment.append(thumbnailElement);
   });
 
+  container.querySelectorAll('.picture').forEach((element) => element.remove());
   container.append(fragment);
 };
 
